@@ -246,23 +246,10 @@ const Contact = () => {
               </IconWrapper>
               <InfoContent>
                 <InfoTitle>Email</InfoTitle>
-                <InfoText>pasumarthisaimanikanta@gmail.com</InfoText>
+                <InfoText>saimanikanta0540@gmail.com</InfoText>
               </InfoContent>
             </ContactCard>
-            <ContactCard
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <IconWrapper>
-                <FaPhone />
-              </IconWrapper>
-              <InfoContent>
-                <InfoTitle>Phone</InfoTitle>
-                <InfoText>+91 830 911 5460</InfoText>
-              </InfoContent>
-            </ContactCard>
+            
             <ContactCard
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
