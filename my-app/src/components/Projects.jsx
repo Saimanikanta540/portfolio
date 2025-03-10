@@ -30,6 +30,7 @@ const ProjectsGrid = styled.div`
 
 const ProjectCard = styled(motion.div)`
   background: var(--card-bg);
+   height: 600px;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--border-color);
@@ -43,8 +44,8 @@ const ProjectCard = styled(motion.div)`
 
 const ProjectImage = styled.img`
   position: relative;
+  padding: 10px;
   width: 100%;
-  padding-top: 56.25%; // 16:9 aspect ratio
   overflow: hidden;
   background: var(--bg-secondary);
 
@@ -69,6 +70,7 @@ const ProjectContent = styled.div`
 
 const ProjectTitle = styled.h3`
   font-size: 24px;
+  height: 50px;
   color: var(--text-primary);
   margin-bottom: 10px;
   font-weight: 600;
@@ -121,26 +123,26 @@ const Projects = () => {
     {
       title: "Arbeit - Job Management System",
       description: "A comprehensive job platform where employers can post vacancies and track applications. Features include user authentication, job posting, application tracking, and a responsive dashboard.",
-      image: "/images/arbeit.jpg",
+      image:  "arbeit.png",
       technologies: ["Next.js", "Express.js", "MongoDB", "Tailwind CSS"],
       github: "https://github.com/Saimanikanta540/arbeit",
-      demo: "http://localhost:5173/not"
+      demo:  "https://arbeit-vrs.vercel.app/"
     },
     {
       title: "Budget-Buddy: Personal Finance Tracker",
       description: "A frontend-only budget management application that helps users track their income, expenses, and savings. Features include expense categorization, budget visualization, and local storage persistence.",
-      image: "/images/budget-buddy.jpg",
+      image: "budget-buddy.png",
       technologies: ["React.js", "Context API", "CSS"],
       github: "https://github.com/Saimanikanta540/budget-buddy",
-      demo: "http://localhost:5173/not"
+      demo: "https://budget-buddy.saipasumarthi.tech/"
     },
     {
       title: "Car Rental System",
       description: "A full-stack car rental system with features for booking vehicles, managing inventory, and handling user authentication. Includes a responsive UI and real-time availability checking.",
-      image: "/images/car-rental.jpg",
+      image: "dive-ease.png",
       technologies: ["React.js", "Spring Boot", "MySQL"],
       github: "https://github.com/Saimanikanta540/car-rental",
-      demo: "http://localhost:5173/not"
+      demo: "ksjcnuidsnvui"
     }
   ]
 
@@ -165,6 +167,7 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
             >
+              
               <ProjectImage src={project.image} alt={project.title} />
               <ProjectContent>
                 <ProjectTitle>{project.title}</ProjectTitle>

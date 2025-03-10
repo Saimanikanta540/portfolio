@@ -299,3 +299,15 @@ button {
   background: rgba(10, 25, 47, 0.7);
   border: 1px solid rgba(100, 255, 218, 0.1);
 } 
+
+@media (max-width: 768px) {
+  iframe {
+    height: 200px !important; /* Adjust for mobile screens */
+  }
+}
+
+@media (max-width: 480px) {
+  iframe {
+    height: 180px !important; /* Smaller screens */
+  }
+}

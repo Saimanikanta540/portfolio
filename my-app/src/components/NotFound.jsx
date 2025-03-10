@@ -59,7 +59,7 @@ const Description = styled(motion.p)`
   }
 `
 
-const HomeButton = styled(motion(Link))`
+const HomeButton = styled(motion.create(Link))`
   display: flex;
   align-items: center;
   gap: 10px;

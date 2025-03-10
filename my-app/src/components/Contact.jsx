@@ -275,7 +275,7 @@ const Contact = () => {
                 <FaGithub />
               </SocialIcon>
               <SocialIcon
-                href="https://www.linkedin.com/in/pasumarthi-sai-manikanta-7b0b2b2b2/"
+                href="https://www.linkedin.com/in/sai-manikanta-64510b301/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
