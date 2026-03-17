@@ -5,7 +5,8 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
-import ThemeToggle from './components/ThemeToggle'
+import Education from './components/Education'
+import Footer from './components/Footer'
 import NotFound from './components/NotFound'
 import './styles/global.css'
 
@@ -15,14 +16,15 @@ function App() {
       <Router>
         <div className="app">
           <Navbar />
-          <ThemeToggle />
           <Routes>
             <Route path="/" element={
               <>
                 <Hero />
                 <About />
+                <Education />
                 <Projects />
                 <Contact />
+                <Footer />
               </>
             } />
             <Route path="*" element={<NotFound />} />

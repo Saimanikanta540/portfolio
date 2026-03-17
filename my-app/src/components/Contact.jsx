@@ -3,24 +3,37 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
+import Container from './Container'
 
 const ContactSection = styled.section`
   background-color: var(--bg-primary);
-  padding: 100px 0;
-`
-
-const Container = styled.div`
-  max-width: 1200px;
+  padding: 80px 0;
+  width: 70%;
   margin: 0 auto;
-  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 1200px) {
+    width: 85%;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding: 60px 0;
+  }
 `
 
 const SectionTitle = styled(motion.h2)`
-  font-size: 32px;
+  font-size: 28px;
   color: var(--text-primary);
-  margin-bottom: 60px;
-  text-align: center;
+  margin-bottom: 48px;
   font-weight: 700;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    margin-bottom: 36px;
+  }
 `
 
 const ContactContent = styled.div`
@@ -42,17 +55,17 @@ const ContactInfo = styled.div`
 const ContactCard = styled(motion.div)`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
   padding: 20px;
   background: var(--card-bg);
+  border-radius: 12px;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-    box-shadow: 0 5px 15px var(--shadow-color);
+    transform: translateY(-4px);
+    border-color: var(--text-primary);
+    box-shadow: 0 8px 24px var(--shadow-color);
   }
 `
 
@@ -62,10 +75,10 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-color);
-  border-radius: 50%;
-  color: white;
-  font-size: 20px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 18px;
 `
 
 const InfoContent = styled.div`
@@ -106,48 +119,49 @@ const Label = styled.label`
 const Input = styled.input`
   padding: 12px;
   border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: 8px;
   background: var(--card-bg);
   color: var(--text-primary);
-  font-size: 16px;
-  transition: all 0.3s ease;
+  font-size: 14px;
+  transition: all 0.2s ease;
 
   &:focus {
     outline: none;
-    border-color: var(--accent-color);
+    border-color: var(--text-primary);
   }
 `
 
 const TextArea = styled.textarea`
   padding: 12px;
   border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: 8px;
   background: var(--card-bg);
   color: var(--text-primary);
-  font-size: 16px;
+  font-size: 14px;
   min-height: 150px;
   resize: vertical;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   &:focus {
     outline: none;
-    border-color: var(--accent-color);
+    border-color: var(--text-primary);
   }
 `
 
 const SubmitButton = styled(motion.button)`
   padding: 12px 24px;
-  background: var(--accent-color);
-  color: white;
+  background: var(--text-primary);
+  color: var(--bg-primary);
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: 500;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    background: var(--accent-hover);
+    background: var(--text-primary);
+    transform: translateY(-2px);
   }
 
   &:disabled {
@@ -168,7 +182,7 @@ const SocialIcon = styled(motion.a)`
   transition: all 0.3s ease;
 
   &:hover {
-    color: var(--accent-color);
+    color: var(--text-primary);
   }
 `
 
@@ -353,7 +367,7 @@ const Contact = () => {
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </SubmitButton>
             {submitStatus === 'success' && (
-              <InfoText style={{ color: 'var(--accent-color)' }}>
+              <InfoText style={{ color: 'var(--text-primary)' }}>
                 Message sent successfully! I'll get back to you soon.
               </InfoText>
             )}

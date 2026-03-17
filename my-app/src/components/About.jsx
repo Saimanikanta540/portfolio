@@ -1,45 +1,62 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { FaCode, FaServer, FaDatabase, FaTools, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
-import { SiLeetcode, SiCodechef, SiHackerrank } from 'react-icons/si'
+import { FaCode, FaServer, FaDatabase, FaTools, FaGithub, FaLinkedin, FaTwitter, FaCoffee } from 'react-icons/fa'
+import { SiLeetcode, SiCodechef, SiHackerrank, SiReact, SiNodedotjs, SiMongodb, SiMysql, SiSpringboot, SiExpress, SiTailwindcss, SiDocker, SiGit, SiTypescript, SiJavascript, SiPython, SiPostgresql } from 'react-icons/si'
+import Container from './Container'
 
 const AboutSection = styled.section`
-  background-color: var(--bg-secondary);
-  padding: 100px 0;
-`
-
-const Container = styled.div`
-  max-width: 800px;
+  padding: 40px 0;
+  width: 70%;
   margin: 0 auto;
-  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 1200px) {
+    width: 85%;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding: 60px 0;
+  }
 `
 
 const SectionTitle = styled(motion.h2)`
-  font-size: 32px;
+  font-size: 28px;
   color: var(--text-primary);
-  margin-bottom: 60px;
-  text-align: center;
+  margin-bottom: 48px;
   font-weight: 700;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    margin-bottom: 36px;
+  }
 `
 
 const AboutContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
 `
 
 const AboutText = styled(motion.p)`
-  font-size: 18px;
+  font-size: 16px;
   color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 20px;
+  line-height: 1.7;
+  margin-bottom: 16px;
 `
 
 const SkillsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  margin-top: 20px;
+  gap: 24px;
+  margin-top: 16px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 `
 
 const SkillCategory = styled.div`
@@ -49,32 +66,31 @@ const SkillCategory = styled.div`
 `
 
 const CategoryTitle = styled.h3`
-  font-size: 20px;
+  font-size: 18px;
   color: var(--text-primary);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 12px;
+  font-weight: 600;
 `
 
 const SkillsList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 `
 
 const SkillItem = styled(motion.div)`
   background: var(--card-bg);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+    transform: translateY(-2px);
   }
 `
 
@@ -82,6 +98,84 @@ const CodingProfiles = styled.div`
   margin-top: 40px;
   padding-top: 40px;
   border-top: 1px solid var(--border-color);
+`
+
+const TechStackSection = styled.div`
+  margin-bottom: 60px;
+`
+
+const TechStackTitle = styled(motion.h3)`
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-align: center;
+`
+
+const TechStackGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 50px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 12px;
+  }
+`
+
+const TechItem = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--text-primary);
+    box-shadow: 0 8px 16px var(--shadow-color);
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+`
+
+const TechIcon = styled.div`
+  font-size: 32px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+
+  ${TechItem}:hover & {
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+`
+
+const TechName = styled.span`
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+  transition: color 0.3s ease;
+
+  ${TechItem}:hover & {
+    color: var(--text-primary);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
 `
 
 const ProfilesTitle = styled.h3`
@@ -97,6 +191,11 @@ const ProfilesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 `
 
 const ProfileCard = styled(motion.a)`
@@ -109,18 +208,18 @@ const ProfileCard = styled(motion.a)`
   border-radius: 8px;
   text-decoration: none;
   color: var(--text-primary);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-    box-shadow: 0 5px 15px var(--shadow-color);
+    transform: translateY(-4px);
+    border-color: var(--text-primary);
+    box-shadow: 0 8px 24px var(--shadow-color);
   }
 `
 
 const ProfileIcon = styled.div`
   font-size: 24px;
-  color: var(--accent-color);
+  color: var(--text-primary);
 `
 
 const ProfileInfo = styled.div`
@@ -140,12 +239,22 @@ const ProfileHandle = styled.span`
 `
 
 const About = () => {
-  const skills = {
-    frontend: ['React.js', 'JavaScript', 'HTML5', 'CSS3', 'Redux', 'Context API'],
-    backend: ['Spring Boot', 'Java', 'Node.js', 'Express.js', 'REST APIs'],
-    database: ['MySQL', 'MongoDB', 'PostgreSQL', 'Redis'],
-    tools: ['Git', 'Docker', 'AWS', 'VS Code', 'IntelliJ IDEA', 'Postman']
-  }
+  const techStack = [
+    { name: 'React.js', icon: <SiReact /> },
+    { name: 'Node.js', icon: <SiNodedotjs /> },
+    { name: 'JavaScript', icon: <SiJavascript /> },
+    { name: 'TypeScript', icon: <SiTypescript /> },
+    { name: 'Java', icon: <FaCoffee /> },
+    { name: 'Spring Boot', icon: <SiSpringboot /> },
+    { name: 'Express.js', icon: <SiExpress /> },
+    { name: 'MongoDB', icon: <SiMongodb /> },
+    { name: 'MySQL', icon: <SiMysql /> },
+    { name: 'PostgreSQL', icon: <SiPostgresql /> },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
+    { name: 'Docker', icon: <SiDocker /> },
+    { name: 'Git', icon: <SiGit /> },
+    { name: 'Python', icon: <SiPython /> },
+  ]
 
   const codingProfiles = [
     {
@@ -157,16 +266,16 @@ const About = () => {
     },
     {
       name: 'LeetCode',
-      handle: '2300031961',
+      handle: 'saimanikanta540',
       icon: <SiLeetcode />,
-      url: 'https://leetcode.com/u/2300031961',
+      url: 'https://leetcode.com/u/saimanikanta540',
       color: '#FFA116'
     },
     {
       name: 'CodeChef',
-      handle: 'klu_2300031961',
+      handle: 'klu_31961',
       icon: <SiCodechef />,
-      url: 'https://www.codechef.com/users/klu_2300031961',
+      url: 'https://www.codechef.com/users/klu_31961',
       color: '#5B4638'
     },
     {
@@ -181,112 +290,33 @@ const About = () => {
   return (
     <AboutSection id="about">
       <Container>
-        <SectionTitle
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          About Me
-        </SectionTitle>
-        <AboutContent>
-          <AboutText
+        <TechStackSection>
+          <TechStackTitle
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            I am a passionate Full Stack Developer currently pursuing my B.Tech in Computer Science at KL University. 
-            My journey in software development began with a curiosity for creating web applications that solve real-world problems.
-          </AboutText>
-          <AboutText
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            I specialize in building scalable web applications using modern technologies. 
-            My expertise includes developing responsive user interfaces with React and creating robust backend services with Spring Boot.
-          </AboutText>
-          <SkillsGrid>
-            <SkillCategory>
-              <CategoryTitle>
-                <FaCode /> Frontend
-              </CategoryTitle>
-              <SkillsList>
-                {skills.frontend.map((skill, index) => (
-                  <SkillItem
-                    key={skill}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {skill}
-                  </SkillItem>
-                ))}
-              </SkillsList>
-            </SkillCategory>
-            <SkillCategory>
-              <CategoryTitle>
-                <FaServer /> Backend
-              </CategoryTitle>
-              <SkillsList>
-                {skills.backend.map((skill, index) => (
-                  <SkillItem
-                    key={skill}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {skill}
-                  </SkillItem>
-                ))}
-              </SkillsList>
-            </SkillCategory>
-            <SkillCategory>
-              <CategoryTitle>
-                <FaDatabase /> Database
-              </CategoryTitle>
-              <SkillsList>
-                {skills.database.map((skill, index) => (
-                  <SkillItem
-                    key={skill}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {skill}
-                  </SkillItem>
-                ))}
-              </SkillsList>
-            </SkillCategory>
-            <SkillCategory>
-              <CategoryTitle>
-                <FaTools /> Tools
-              </CategoryTitle>
-              <SkillsList>
-                {skills.tools.map((skill, index) => (
-                  <SkillItem
-                    key={skill}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {skill}
-                  </SkillItem>
-                ))}
-              </SkillsList>
-            </SkillCategory>
-          </SkillsGrid>
-          <CodingProfiles>
+            Tech Stack
+          </TechStackTitle>
+          <TechStackGrid>
+            {techStack.map((tech, index) => (
+              <TechItem
+                key={tech.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <TechIcon>{tech.icon}</TechIcon>
+                <TechName>{tech.name}</TechName>
+              </TechItem>
+            ))}
+          </TechStackGrid>
+        </TechStackSection>
+
+        <CodingProfiles>
             <ProfilesTitle>
               <FaCode /> Coding Profiles
             </ProfilesTitle>
@@ -314,7 +344,6 @@ const About = () => {
               ))}
             </ProfilesGrid>
           </CodingProfiles>
-        </AboutContent>
       </Container>
     </AboutSection>
   )

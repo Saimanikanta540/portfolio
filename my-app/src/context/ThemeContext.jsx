@@ -3,15 +3,15 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const ThemeContext = createContext()
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isDarkMode, setIsDarkMode] = useState(false)
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme')
     if (savedTheme) {
       setIsDarkMode(savedTheme === 'dark')
     } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      setIsDarkMode(prefersDark)
+      // Default to light mode
+      setIsDarkMode(false)
     }
   }, [])
 
