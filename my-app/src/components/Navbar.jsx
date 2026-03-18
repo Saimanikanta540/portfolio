@@ -15,17 +15,15 @@ const Nav = styled.nav`
   background: var(--bg-primary);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
-  padding: 16px 0;
-  width: 70%;
-  margin: 0 auto;
-
-  @media (max-width: 1200px) {
-    width: 85%;
-  }
+  padding: 16px 20px;
+  width: 100%;
 
   @media (max-width: 768px) {
-    width: 90%;
-    padding: 12px 0;
+    padding: 12px 16px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 12px;
   }
 `
 
@@ -34,9 +32,14 @@ const Logo = styled(motion.a)`
   font-weight: 700;
   color: var(--text-primary);
   text-decoration: none;
+  white-space: nowrap;
 
   @media (max-width: 768px) {
     font-size: 18px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
   }
 `
 
@@ -45,12 +48,33 @@ const NavContent = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media (max-width: 1024px) {
+    gap: 30px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+    padding: 0 5px;
+  }
 `
 
 const NavLinks = styled.div`
   display: flex;
   gap: 30px;
   align-items: center;
+
+  @media (max-width: 1024px) {
+    gap: 20px;
+  }
 
   @media (max-width: 768px) {
     display: none;
@@ -68,10 +92,15 @@ const ThemeToggleButton = styled(motion.button)`
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  flex-shrink: 0;
 
   &:hover {
     background: var(--bg-secondary);
     transform: translateY(-2px);
+  }
+
+  @media (max-width: 480px) {
+    padding: 6px;
   }
 `
 
@@ -87,11 +116,18 @@ const ResumeButton = styled(motion.a)`
   align-items: center;
   gap: 8px;
   transition: all 0.2s ease;
+  white-space: nowrap;
   
   &:hover {
     background: var(--text-primary);
     transform: translateY(-2px);
     color: white;
+  }
+
+  @media (max-width: 480px) {
+    padding: 7px 14px;
+    font-size: 12px;
+    gap: 6px;
   }
 `
 
@@ -118,26 +154,44 @@ const MobileMenuButton = styled(motion.button)`
   color: var(--text-primary);
   font-size: 24px;
   cursor: pointer;
+  flex-shrink: 0;
 
   @media (max-width: 768px) {
     display: block;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
   }
 `
 
 const MobileMenu = styled(motion.div)`
   display: none;
   position: fixed;
-  top: 80px;
+  top: calc(100% + 1px);
   left: 0;
   right: 0;
   background: var(--bg-primary);
   padding: 20px;
   border-bottom: 1px solid var(--border-color);
+  margin-top: 52px;
+
+  @media (max-width: 1024px) {
+    padding: 18px 24px;
+    margin-top: 56px;
+  }
 
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 14px;
+    padding: 14px 16px;
+    margin-top: 44px;
   }
 `
 

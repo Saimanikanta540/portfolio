@@ -9,20 +9,25 @@ const HeroSection = styled.section`
   position: relative;
   overflow: hidden;
   background-color: var(--bg-primary);
-  min-height: 80vh;
-  width: 70%;
-  margin: 0 auto;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 120px 20px 60px;
 
   @media (max-width: 1200px) {
-    width: 85%;
+    padding: 100px 20px 50px;
   }
 
   @media (max-width: 768px) {
-    width: 90%;
-    padding: 40px 0;
+    min-height: auto;
+    padding: 100px 16px 50px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 90px 14px 40px;
   }
 
   &::before {
@@ -45,12 +50,33 @@ const HeroContent = styled.div`
   justify-content: flex-start;
   text-align: left;
   width: 100%;
-  gap: 50px;
+  max-width: 1400px;
+  gap: 60px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+
+  @media (max-width: 1200px) {
+    gap: 50px;
+    padding: 0 30px;
+  }
+
+  @media (max-width: 1024px) {
+    gap: 40px;
+    flex-wrap: wrap;
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 30px;
+    padding: 0 20px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 24px;
+    padding: 0 16px;
   }
 `
 
@@ -59,32 +85,40 @@ const TextContent = styled.div`
   flex-direction: column;
   align-items: flex-start;
   flex: 1;
+  min-width: 0;
+
+  @media (max-width: 1024px) {
+    flex: 0 1 100%;
+  }
 
   @media (max-width: 768px) {
     width: 100%;
+    align-items: center;
+    text-align: center;
   }
 `
 
 const HeroImage = styled(motion.img)`
-  position: absolute;
-  margin-top: 30px;
-  margin-right: 30px;
-  top: 20px;
-  right: 0;
-  width: 250px;
-  height: 300px;
+  width: 300px;
+  height: 350px;
   object-fit: contain;
+  flex-shrink: 0;
 
   @media (max-width: 1024px) {
-    width: 250px;
-    height: 250px;
-    top: 30px;
+    width: 280px;
+    height: 320px;
   }
 
   @media (max-width: 768px) {
+    width: 250px;
+    height: 280px;
+    margin: 20px 0;
+  }
+
+  @media (max-width: 480px) {
     width: 200px;
-    height: 200px;
-    top: 10px;
+    height: 220px;
+    margin: 15px 0;
   }
 `
 
@@ -94,46 +128,88 @@ const Greeting = styled(motion.h1)`
   margin-bottom: 16px;
   font-weight: 500;
 
+  @media (max-width: 1024px) {
+    font-size: 13px;
+  }
+
   @media (max-width: 768px) {
     font-size: 12px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 11px;
+    margin-bottom: 12px;
   }
 `
 
 const Name = styled(motion.h2)`
-  font-size: 48px;
+  font-size: 56px;
   color: var(--text-primary);
   margin-bottom: 12px;
   line-height: 1.2;
   font-weight: 700;
+  word-break: break-word;
+
+  @media (max-width: 1024px) {
+    font-size: 48px;
+  }
 
   @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 480px) {
     font-size: 32px;
   }
 `
 
 const Title = styled(motion.h3)`
-  font-size: 20px;
+  font-size: 24px;
   color: var(--text-secondary);
   margin-bottom: 20px;
   line-height: 1.2;
   font-weight: 500;
   min-height: 24px;
 
+  @media (max-width: 1024px) {
+    font-size: 22px;
+  }
+
   @media (max-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 480px) {
     font-size: 16px;
+    margin-bottom: 14px;
   }
 `
 
 const Description = styled(motion.p)`
-  font-size: 16px;
+  font-size: 18px;
   color: var(--text-secondary);
   max-width: 600px;
   margin-bottom: 32px;
   line-height: 1.7;
   text-align: left;
+  word-break: break-word;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
 
   @media (max-width: 768px) {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+
+  @media (max-width: 480px) {
     font-size: 14px;
+    margin-bottom: 20px;
   }
 `
 
@@ -142,15 +218,29 @@ const ButtonGroup = styled.div`
   gap: 20px;
   margin-bottom: 40px;
   flex-wrap: wrap;
+  justify-content: flex-start;
+
+  @media (max-width: 1024px) {
+    gap: 16px;
+  }
 
   @media (max-width: 768px) {
-    gap: 12px;
+    gap: 14px;
     margin-bottom: 30px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-direction: column;
+    width: 100%;
   }
 `
 
 const CTAButton = styled(motion.a)`
-  padding: 12px 24px;
+  padding: 12px 28px;
   background: transparent;
   border: 1px solid var(--border-color);
   color: var(--text-primary);
@@ -162,16 +252,29 @@ const CTAButton = styled(motion.a)`
   font-weight: 500;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  white-space: nowrap;
   
   &:hover {
     border-color: var(--text-primary);
     transform: translateY(-2px);
   }
 
-  @media (max-width: 768px) {
-    padding: 10px 18px;
+  @media (max-width: 1024px) {
+    padding: 11px 24px;
     font-size: 13px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 18px;
+    font-size: 12px;
+    width: 100%;
   }
 `
 
@@ -188,9 +291,20 @@ const SecondaryButton = styled(CTAButton)`
 const SocialLinks = styled.div`
   display: flex;
   gap: 20px;
+  justify-content: flex-start;
+
+  @media (max-width: 1024px) {
+    gap: 18px;
+  }
 
   @media (max-width: 768px) {
-    gap: 15px;
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    gap: 14px;
   }
 `
 
@@ -202,9 +316,17 @@ const SocialIcon = styled(motion.button)`
   transition: all 0.2s ease;
   cursor: pointer;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
     opacity: 0.6;
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
   }
 `
 
@@ -216,15 +338,23 @@ const SocialLink = styled(motion.a)`
   transition: all 0.2s ease;
   cursor: pointer;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
     opacity: 0.6;
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
   }
 `
 
 const ScrollIndicator = styled(motion.div)`
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -234,6 +364,16 @@ const ScrollIndicator = styled(motion.div)`
   color: var(--text-secondary);
   font-size: 14px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    bottom: 20px;
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `
 
 const ScrollLine = styled(motion.div)`
