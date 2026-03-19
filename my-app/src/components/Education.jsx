@@ -127,7 +127,7 @@ const Education = () => {
       title: 'Class XII - MPC',
       subtitle: 'Amaravathi Junior College',
       date: '2021 – 2023',
-      achievement: 'Marks: 931/100'
+      achievement: 'Marks: 931/1000'
     },
     {
       icon: <FaGraduationCap />,
