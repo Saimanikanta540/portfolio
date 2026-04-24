@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { FaGithub, FaExternalLinkAlt, FaFilter } from 'react-icons/fa'
 import Container from './Container'
 
-
 const ProjectsSection = styled.section`
   background-color: var(--bg-primary);
   padding: 80px 0;
@@ -129,11 +128,19 @@ const ProjectTitle = styled.h3`
   font-weight: 600;
 `
 
-const ProjectDescription = styled.p`
+const ProjectDescription = styled.div`
   font-size: 15px;
   color: var(--text-secondary);
   margin-bottom: 20px;
   line-height: 1.6;
+
+  ul {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
 `
 
 const TechStack = styled.div`
@@ -177,8 +184,23 @@ const Projects = () => {
   
   const projects = [
     {
+      title: "ClimateShield AI – Autonomous Parametric Insurance for Gig Workers",
+      description: [
+        "AI-powered platform using real-time environmental data to protect gig workers from income loss via parametric insurance.",
+        "Features TensorFlow.js predictions and an autonomous claim system with zero-touch payouts and fraud detection."
+      ],
+      image: "/climateshield.png",
+      technologies: ["React.js", "Node.js", "MongoDB", "TensorFlow.js", "REST APIs"],
+      category: "fullstack",
+      github: "https://github.com/Saimanikanta540/Gudiewire_DEVTrails_Hackthon",
+      demo: "https://gudiewire-dev-trails-hackthon.vercel.app/"
+    },
+    {
       title: "Arbeit - Job Management System",
-      description: "A comprehensive job platform where employers can post vacancies and track applications. Features include user authentication, job posting, application tracking, and a responsive dashboard.",
+      description: [
+        "Comprehensive job platform enabling employers to post vacancies and track applications efficiently.",
+        "Features secure user authentication, interactive dashboards, and streamlined application tracking."
+      ],
       image:  "/arbeit.png",
       technologies: ["Next.js", "Express.js", "MongoDB", "Tailwind CSS"],
       category: "fullstack",
@@ -187,7 +209,10 @@ const Projects = () => {
     },
     {
       title: "Budget-Buddy: Personal Finance Tracker",
-      description: "A frontend-only budget management application that helps users track their income, expenses, and savings. Features include expense categorization, budget visualization, and local storage persistence.",
+      description: [
+        "Frontend budget management application helping users track income, expenses, and savings goals.",
+        "Includes intuitive expense categorization, dynamic budget visualization, and local storage persistence."
+      ],
       image: "/budget-buddy.png",
       technologies: ["React.js", "Context API", "CSS"],
       category: "frontend",
@@ -196,7 +221,10 @@ const Projects = () => {
     },
     {
       title: "Car Rental System",
-      description: "A full-stack car rental system with features for booking vehicles, managing inventory, and handling user authentication. Includes a responsive UI and real-time availability checking.",
+      description: [
+        "Full-stack car rental platform for seamless vehicle booking and comprehensive inventory management.",
+        "Offers a responsive interface, robust user authentication, and real-time vehicle availability checking."
+      ],
       image: "/dive-ease.png",
       technologies: ["React.js", "Spring Boot", "MySQL"],
       category: "fullstack",
@@ -205,7 +233,10 @@ const Projects = () => {
     },
     {
       title: "NytLyf - Event Discovery App",
-      description: "A mobile application built with React Native and Expo that provides a platform for users to explore events, browse categories, and manage their profile and saved items. Features include home feed, explore functionality, category browsing, search, and user preferences.",
+      description: [
+        "Cross-platform mobile application for discovering local events, browsing categories, and managing user profiles.",
+        "Includes personalized home feeds, advanced search functionality, and saved event preferences."
+      ],
       image: "nytlyf.png",
       technologies: ["React Native", "Expo", "TypeScript", "Expo Router"],
       category: "frontend",
@@ -214,9 +245,12 @@ const Projects = () => {
     },
     {
       title: "Job Market Analysis",
-      description: "Built a data-driven job market analysis system to analyze trends, skills demand, and employment patterns using real-world datasets with interactive dashboards. Implemented Machine Learning concepts and data analytics techniques (Pandas, NumPy, Matplotlib) to extract meaningful insights and support decision-making.",
+      description: [
+        "Data-driven analysis system utilizing interactive dashboards to evaluate job market trends and skills demand.",
+        "Integrates machine learning and data analytics to extract actionable insights for decision-making."
+      ],
       image: "job-market.png",
-      technologies: ["Python", "Machine Learning", "Data Analysis", "Pandas", "NumPy", "Matplotlib/Seaborn"],
+      technologies: ["React.js", "Spring Boot", "MongoDB", "Gemini AI"],
       category: "fullstack",
       github: "https://github.com/Saimanikanta540/Job_Market_Analysis",
       demo: "#"
@@ -273,10 +307,18 @@ const Projects = () => {
                 whileHover={{ y: -10 }}
               >
                 
-                <ProjectImage src={project.image} alt={project.title} />
+                <ProjectImage>
+                  <img src={project.image} alt={project.title} />
+                </ProjectImage>
                 <ProjectContent>
                   <ProjectTitle>{project.title}</ProjectTitle>
-                  <ProjectDescription>{project.description}</ProjectDescription>
+                  <ProjectDescription>
+                    <ul>
+                      {project.description.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                  </ProjectDescription>
                   <TechStack>
                     {project.technologies.map((tech) => (
                       <TechTag key={tech}>{tech}</TechTag>
@@ -308,4 +350,4 @@ const Projects = () => {
   )
 }
 
-export default Projects 
+export default Projects
